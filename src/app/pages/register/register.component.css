@@ -1,0 +1,16 @@
+.register-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/fondo-register.png');
+    background-size: cover;
+    background-position: center;
+}
+
+mat-card{
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    background: rgb(255, 255, 255, 0.8);
+}

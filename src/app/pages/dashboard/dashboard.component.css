@@ -1,0 +1,20 @@
+.dashboard-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/fondo-dashboard.jpg');
+}
+
+.dashboard-card{
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+    background: rgb(255, 255, 255, 0.8);
+}
+
+table{
+    width: 100%;
+    margin-top: 20px;
+}

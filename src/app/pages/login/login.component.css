@@ -1,0 +1,44 @@
+/* Estilo de imagen de fondo*/
+.login-container{
+    background: url('https://p4.wallpaperbetter.com/wallpaper/674/631/639/1600x900-px-wallpaper-preview.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Estilos para la tarjeta de iniciar sesion*/
+.login-card{
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    background: rgb(red, green, blue);
+    border-radius: 10px;
+}
+
+/*Estilo de titulos y subtitulos*/
+.title{
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.subtitle{
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/*Estilo de formularios y botones*/
+.full-width{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.action{
+    display: flex;
+    justify-content: space-between;
+}

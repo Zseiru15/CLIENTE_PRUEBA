@@ -1,0 +1,43 @@
+<div class="dashboard-container">
+    <mat-card class = "dashboard-card">
+        <mat-card-title>Dashboard</mat-card-title>
+        <mat-card-content>
+            <p>Bienvenido al panel de administracion. Aqui pueden ver los datos de una tabla</p>
+            <button mat-raised-button color="primary" (click)="consultarDatos()">Consultar</button>
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef= "Id">
+                    <th mat-header-cell *matHeaderCellDef>Id</th>
+                    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+                </ng-container>
+
+                <<ng-container matColumnDef="Nombre">
+                    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Correo">
+                    <th mat-header-cell *matHeaderCellDef>Correo</th>
+                    <td mat-cell *matCellDef="let element">{{element.email}}</td>
+                </ng-container>
+
+                <<ng-container matColumnDef="Edad">
+                    <th mat-header-cell *matHeaderCellDef>Numero</th>
+                    <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+                </ng-container>
+
+                <<ng-container matColumnDef="Sitio Web">
+                    <th mat-header-cell *matHeaderCellDef>Sitio Web</th>
+                    <td mat-cell *matCellDef="let element">{{element.website}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+
+            <button mat-button color="primary" (click)="openVideoModal()">Ver Video</button>
+        </mat-card-content>
+    </mat-card>
+</div>

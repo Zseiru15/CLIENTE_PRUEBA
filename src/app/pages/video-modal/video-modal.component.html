@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Video de Youtube</h2>
+<mat-dialog-content class="video-container">
+    <iframe 
+    [src]="videoUrl"
+    width="100%"
+    height="315"
+    frameBorder="0"
+    allowfullscreen>
+    </iframe>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="closeModal()"></button>
+</mat-dialog-actions>
