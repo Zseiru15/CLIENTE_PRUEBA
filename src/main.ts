@@ -6,6 +6,7 @@ import { LoginComponent } from './app/pages/login/login.component';
 import { RegisterComponent } from './app/pages/register/register.component';
 import { DashboardComponent } from './app/pages/dashboard/dashboard.component';
 import { provideHttpClient } from '@angular/common/http';
+import { UsuarioComponent } from './app/pages/components/usuario/usuario.component';
 
 bootstrapApplication(AppComponent,{
     providers:[
@@ -13,7 +14,23 @@ bootstrapApplication(AppComponent,{
             { path: '', redirectTo: 'login', pathMatch: 'full' },
             { path: 'login', component: LoginComponent },
             { path: 'register', component: RegisterComponent },
-            { path: 'dashboard', component: DashboardComponent },
+            { path: 'usuario', component: UsuarioComponent },
+            { path: 'dashboard', component: DashboardComponent, 
+                children: [
+                    {
+                        path: '', component: UsuarioComponent
+                    },
+                    {
+                        path: 'login', component: LoginComponent
+                    },
+                    {
+                        path: 'register', component: RegisterComponent
+                    },
+                    {
+                        path: 'usuario', component: UsuarioComponent
+                    },
+                ]
+            },
           ]),
         provideAnimations(),
         provideHttpClient()

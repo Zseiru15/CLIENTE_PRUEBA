@@ -1,0 +1,86 @@
+<div class="dashboard-container">
+    <mat-card class = "dashboard-card">
+        <mat-card-title>Dashboard</mat-card-title>
+        <mat-card-content>
+            <p>Bienvenido al panel de administracion. Aqui pueden ver los datos de una tabla</p>
+            <button mat-raised-button color="primary" (click)="consultarDatos()">Consultar</button>
+
+            <div class="filtros">
+                <mat-form-field apparent="fill">
+                    <mat-label>Id</mat-label>
+                    <input matInput [(ngModel)]="filtros.id" (input)="aplicarFiltros()" placeholder="Buscar Id">
+                </mat-form-field>
+                <mat-form-field apparent="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput [(ngModel)]="filtros.name" (input)="aplicarFiltros()" placeholder="Buscar Id">
+                </mat-form-field>
+                <mat-form-field apparent="fill">
+                    <mat-label>Correo</mat-label>
+                    <input matInput [(ngModel)]="filtros.email" (input)="aplicarFiltros()" placeholder="Buscar Id">
+                </mat-form-field>
+                <mat-form-field apparent="fill">
+                    <mat-label>Numero</mat-label>
+                    <input matInput [(ngModel)]="filtros.phone" (input)="aplicarFiltros()" placeholder="Buscar Id">
+                </mat-form-field>
+                <mat-form-field apparent="fill">
+                    <mat-label>Sitios Web</mat-label>
+                    <input matInput [(ngModel)]="filtros.website" (input)="aplicarFiltros()" placeholder="Buscar Id">
+                </mat-form-field>
+            </div>
+
+            <table mat-table [dataSource]="datafilter" class="mat-elevation-z8">
+
+                <ng-container matColumnDef= "Id">
+                    <th mat-header-cell *matHeaderCellDef>Id</th>
+                    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+                </ng-container>
+
+                <<ng-container matColumnDef="Nombre">
+                    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Correo">
+                    <th mat-header-cell *matHeaderCellDef>Correo</th>
+                    <td mat-cell *matCellDef="let element">{{element.email}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Numero">
+                    <th mat-header-cell *matHeaderCellDef>Numero</th>
+                    <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Sitio Web">
+                    <th mat-header-cell *matHeaderCellDef>Sitio Web</th>
+                    <td mat-cell *matCellDef="let element">{{element.website}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="upload">
+                    <th mat-header-cell *matHeaderCellDef>Documento</th>
+                    <td mat-cell *matCellDef="let row">
+                        <button mat-raised-button color="primary" (click)="fileInput.click()">Subir</button>
+                        <input 
+                        type="file"
+                        hidden
+                        #fileInput
+                        (change)="onFileSelected($event, row)"
+                        accept=".pdf, .doc, .docx, .txt"
+                        />
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="notify">
+                    <th mat-header-cell *matHeaderCellDef>Notificar</th>
+                    <td mat-cell *matCellDef="let row">
+                        <button mat-button color="accent" (click)="enviarNotificacion(row.email)">Notificar</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <button mat-button color="primary" (click)="openVideoModal()">Ver Video</button>
+        </mat-card-content>
+    </mat-card>
+</div>

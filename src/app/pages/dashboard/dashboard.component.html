@@ -1,43 +1,43 @@
-<div class="dashboard-container">
-    <mat-card class = "dashboard-card">
-        <mat-card-title>Dashboard</mat-card-title>
-        <mat-card-content>
-            <p>Bienvenido al panel de administracion. Aqui pueden ver los datos de una tabla</p>
-            <button mat-raised-button color="primary" (click)="consultarDatos()">Consultar</button>
+<mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img src="/favicon.ico" alt="Logo Angular" class="logo">
+    <span class="app-name">Mi Aplicacion</span>
+    <span class="spacer"></span>
+    <span class="usuario">{{usuario}}</span>
 
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="over" [(opened)]="showSidenav" class="sidenav">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/dashboard/usuario" (click)="toggleSidenav()">Usuarios</a>
+            <a mat-list-item routerLink="/dashboard/register" (click)="toggleSidenav()">Registro</a>
+            <a mat-list-item routerLink="/dashboard/login" (click)="toggleSidenav()">Login</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
 
-                <ng-container matColumnDef= "Id">
-                    <th mat-header-cell *matHeaderCellDef>Id</th>
-                    <td mat-cell *matCellDef="let element">{{element.id}}</td>
-                </ng-container>
+<mat-toolbar color="primary" class="informatbar">
+    <span class="app-name">
+        Barra de informacion actual 1 <br>
+        Barra de informacion 2 <br>
+        Barra de informacion 3 <br>
+    </span>
+    <span class="spacer"></span>
+    <span class="app-name">
+        Informacion de la pagina actual <br>
+        Informacion de la pagina 2 <br>
+        Informacion de la pagina 3 <br>
+    </span>
+    <span class="spacer"></span>
+    <span class="usuario">
+        {{usuario}} <br>
+        {{usuario2}} <br>
+        {{usuario3}} <br>
+    </span>
 
-                <<ng-container matColumnDef="Nombre">
-                    <th mat-header-cell *matHeaderCellDef>Nombre</th>
-                    <td mat-cell *matCellDef="let element">{{element.name}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="Correo">
-                    <th mat-header-cell *matHeaderCellDef>Correo</th>
-                    <td mat-cell *matCellDef="let element">{{element.email}}</td>
-                </ng-container>
-
-                <<ng-container matColumnDef="Edad">
-                    <th mat-header-cell *matHeaderCellDef>Numero</th>
-                    <td mat-cell *matCellDef="let element">{{element.phone}}</td>
-                </ng-container>
-
-                <<ng-container matColumnDef="Sitio Web">
-                    <th mat-header-cell *matHeaderCellDef>Sitio Web</th>
-                    <td mat-cell *matCellDef="let element">{{element.website}}</td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-            </table>
-
-            <button mat-button color="primary" (click)="openVideoModal()">Ver Video</button>
-        </mat-card-content>
-    </mat-card>
-</div>
+</mat-toolbar>
