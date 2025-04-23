@@ -7,6 +7,7 @@ import { RegisterComponent } from './app/pages/register/register.component';
 import { DashboardComponent } from './app/pages/dashboard/dashboard.component';
 import { provideHttpClient } from '@angular/common/http';
 import { UsuarioComponent } from './app/pages/components/usuario/usuario.component';
+import { CardCarouselComponent } from './app/pages/components/card-carousel/card-carousel.component';
 
 bootstrapApplication(AppComponent,{
     providers:[
@@ -28,6 +29,10 @@ bootstrapApplication(AppComponent,{
                     },
                     {
                         path: 'usuario', component: UsuarioComponent
+                    },
+                    
+                    {
+                        path: 'card', component: CardCarouselComponent
                     },
                 ]
             },

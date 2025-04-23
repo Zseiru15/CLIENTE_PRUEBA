@@ -1,0 +1,42 @@
+<div class="carousel-wrapper">
+    <h2>{{sectionTitle}}</h2>
+    <p class="description">{{sectionDescription}}</p>
+
+    <div class="carousel-container">
+        <button mat-raised-button color="primary" (click)="goPrevious()" [disabled]="currentIndex === 0">Anterios</button>
+
+        <div class="carousel-track-container">
+            <div class="carousel-track" [style.transform]="getTransform()">
+                <mat-card class="carousel-card" *ngFor="let card of cards">
+                    <img mat-card-image [src]="card.image" alt="Imagen de la tarjeta"/>
+                    <mat-card-title>{{card.title}}</mat-card-title>
+                    <mat-card-actions>
+                        <button mat-button color="accent" (click)="mostrarDetalle(card)">{{card.title_button}}</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+        <button mat-raised-button color="primary" (click)="goNext()" [disabled]="currentIndex===cards.length-1">Siguiente</button>
+    </div>
+    <div class="detalle-info" *ngIf="selectedInfo">
+        <h3>{{selectedInfo.title}}</h3>
+        <p>{{selectedInfo.description}}</p>
+        <button mat-stroked-button color="warn" (click)="cerrarDetalle()">Cerrar</button>
+    </div>
+</div>
+
+
+
+<!-- <div class="carousel-container">
+    <h2 class="carousel-title">{{sectionTitle}}</h2>
+    <p class="caruosel-description">{{sectionDescription}}</p>
+
+    <div class="card-wrapper" #scrollContainer>
+        <mat-card *ngFor="let card of cards" class="carousel-card" [style.backgroundImage]="'url('+card.image+')'">
+            <div class="card-overlay">
+                <h3>{{card.title}}</h3>
+                <button mat-raised-button color="primary" (click)="card.action()">Accion</button>
+            </div>
+        </mat-card>
+    </div>
+</div> -->
